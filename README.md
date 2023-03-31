@@ -1,3 +1,27 @@
+# sorted-channel
+
+A multi-producer, multi-consumer channel that outputs sorted messages. Each message is received by only one receiving channel.
+
+## Examples
+```rust
+use sorted_channel::sorted_channel;
+use std::thread;
+
+let (tx, rx) = sorted_channel();
+
+let handle = thread::spawn(move || {
+    for i in [0, 9, 1, 8, 2, 7, 3, 6, 4, 5] {
+        tx.send(i).unwrap();
+    }
+});
+
+handle.join().unwrap();
+
+for i in (0..10).rev() {
+    assert_eq!(rx.recv(), Ok(i));
+}
+```
+
 ## License
 
 Licensed under either of
