@@ -1,5 +1,7 @@
 # sorted-channel
 
+[![codecov](https://codecov.io/github/kczimm/sorted-channel/branch/master/graph/badge.svg?token=4QTHGUQ5T0)](https://codecov.io/github/kczimm/sorted-channel)
+
 A multi-producer, multi-consumer channel that outputs sorted messages. Each message is received by only one receiving channel.
 
 ## Examples
